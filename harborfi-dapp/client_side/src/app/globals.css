@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: white;
+  background: #0b5074;
+}
+
+.button {
+  @apply px-8 py-2 md:py-2 border rounded-full bg-transparent hover:bg-white/10 text-white cursor-pointer;
+}
+
+.SelectOptions {
+  @apply bg-Primary rounded text-white px-8 appearance-none cursor-pointer;
+}
+
+.balancedText {
+  @apply text-[14px] text-Primary;
+}
+
+.buttonActions {
+  @apply bg-Primary text-white w-full rounded-xl py-3 font-semibold cursor-pointer;
+}
+
+.inputAmount {
+  @apply text-4xl font-bold bg-transparent outline-none text-right w-24 xl:w-52;
+}
+
+.tabsContainer {
+  @apply flex flex-col gap-2 rounded-xl text-Primary;
+}
+
+.fieldRow {
+  @apply flex flex-col bg-white rounded-xl  px-4 py-4 gap-3;
+}
+
+.actionsTabsView {
+  @apply w-full bg-bgPrimary rounded-xl p-6 mt-4;
+}
+
+.tabButtonActions{
+  @apply bg-bgSecondary font-semibold;
+}
+
+.buttonSelectToken {
+  @apply flex gap-2 items-center bg-Primary rounded px-4 py-2 text-white cursor-pointer;
+}
+
+@theme {
+  --color-bgPrimary: #002e4d;
+  --color-bgSecondary: #074365;
+  --color-Primary: #033758;
+  --inset-shadow-harbor: inset -13px 20px 45.8px 0 rgba(124, 198, 228, 0.7);
+}

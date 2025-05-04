@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Transaction {
+  id              String   @id @default(cuid())
+  userWallet      String
+  type            String   // "DEPOSIT" or "WITHDRAW" or "QR"
+  tokenType       TokenType
+  tokenAmount     Float?
+  fiatCurrency    FiatCurrencyType   
+  fiatAmount      Int?
+  paymentDetails   Json   // "QR", "VA", etc
+  status   TransactionStatus   @default(WAITING)
+  xenditId      String?  // (From Xendit if needed)
+  onChainTxHash   String?  // Blockchain transaction hash
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  QRIS
+}
+
+enum TransactionStatus {
+  WAITING
+  PENDING
+  PAID
+  COMPLETED
+  FAILED
+  EXPIRED
+}
+
+enum FiatCurrencyType{
+  IDR
+  PHP
+  THB
+}
+
+enum TokenType{
+  HIDR
+  HPHP
+  HTHB
+  PPT
+}
+
